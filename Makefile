@@ -1,0 +1,2 @@
+up:
+	bundle exec rackup

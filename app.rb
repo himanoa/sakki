@@ -19,7 +19,7 @@ class App < Sinatra::Base
 
   helpers do
     def entry_repository
-      @entry_repository ||= EntryRepository.new
+      @@entry_repository ||= EntryRepository.new
     end
   end
   get "/" do
@@ -31,15 +31,16 @@ class App < Sinatra::Base
   end
 
   post "/entries" do
-
-  end
-
-  get "/entries/:id" do
     entry = Entry.new
     entry.title = params[:title]
     entry.body = params[:body]
     id = entry_repository.save(entry)
 
-    redirect to("entries/#{id}")
+    redirect to("/entries/#{id}")
+  end
+
+  get "/entries/:id" do
+    @entry = entry_repository.fetch(params[:id].to_i)
+    slim :entry
   end
 end

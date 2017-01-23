@@ -25,15 +25,15 @@ class EntryRepository
     return entry
   end
   def each(&block)
+    entries = []
     query = "SELECT * FROM `entries`"
     res = @db.query(query)
-    results = []
     res.each do |row|
       entry = Entry.new
       entry.title = row["title"]
       entry.body = row["body"]
-      results.push(entry)
+      entries.push(entry)
     end
-    return results.each
+    return entries.each
   end
 end

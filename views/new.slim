@@ -1,0 +1,11 @@
+doctype 5
+html
+  head
+    meta(charset="UTF-8")
+    title 新しいポエム
+  body
+
+    form(method="POST" action="/entries")
+      input(type="text" name="title")
+      textarea(name="body")
+      input(type="submit" value="作成")

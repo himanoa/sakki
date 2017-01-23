@@ -23,8 +23,4 @@ class App < Sinatra::Base
 
   get "/entries/:id" do
   end
-  get "/:name" do
-    @name = params[:name]
-    slim :index
-  end
 end

@@ -14,6 +14,15 @@ class App < Sinatra::Base
     slim :index
   end
 
+  get "/entries/new" do
+    slim :new
+  end
+
+  post "/entries" do
+  end
+
+  get "/entries/:id" do
+  end
   get "/:name" do
     @name = params[:name]
     slim :index

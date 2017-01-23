@@ -1,6 +1,6 @@
-doctype html
-html
-  head
-    title Sakki
-  body
-    h1 Hello, I'm #{@name || 'sakki'}!
+h1 ポエム投稿サイト
+
+ul
+  - entry_repository.each_with_index do |entry, id|
+    li
+      a(href="/entries/#{id}")= entry.title

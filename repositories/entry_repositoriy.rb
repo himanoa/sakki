@@ -1,6 +1,12 @@
 class EntryRepository
-  def save
+  def initialize
+    @entries = []
+    @entries.length - 1
   end
-  def fetch
+  def save(entry)
+    @entries.push(entry)
+  end
+  def fetch(id)
+    @entries[id]
   end
 end

@@ -27,7 +27,7 @@ class App < Sinatra::Base
 
   helpers do
     def entry_repository
-      @@entry_repository ||= EntryRepository.new
+      @@entry_repository ||= EntryRepository.new(App.database)
     end
   end
   get '/' do

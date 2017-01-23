@@ -1,0 +1,5 @@
+development:
+  adapter: mysql2
+  encoding: utf-8mb4
+  database:
+  username:

@@ -7,6 +7,15 @@ class Entry
       end
     end
   end
+  def body_html
+    pipeline = HTML::Pipeline.new [
+      HTML::Pipeline::MarkdownFilter,
+      HTML::Pipeline::AutolinkFilter
+    ]
+    result = pipeline.call(body)
+
+    result[:output].to_s
+  end
   COLUMNS = [:id, :title, :body, :posted_at, :published]
   COLUMNS.each do |column|
     attr_accessor column

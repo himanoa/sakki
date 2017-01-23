@@ -6,7 +6,7 @@ Dir["models/*.rb"].each do |model|
   require_relative model
 end
 
-Dir["repositries/*.rb"].each do |model|
+Dir["repositories/*.rb"].each do |model|
   require_relative model
 end
 class App < Sinatra::Base

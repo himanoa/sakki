@@ -36,6 +36,7 @@ GEM
     ridgepole (0.6.5)
       activerecord (>= 4.2, < 6)
       diffy
+    rinku (2.0.2)
     sinatra (2.0.0.beta2)
       mustermann (= 1.0.0.beta2)
       rack (~> 2.0)
@@ -67,6 +68,7 @@ DEPENDENCIES
   mysql2
   rack
   ridgepole
+  rinku
   sinatra (~> 2.0.0.beta2)
   sinatra-contrib (~> 2.0.0.beta2)
   slim

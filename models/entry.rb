@@ -8,12 +8,7 @@ class Entry
     end
   end
   def body_html
-    pipeline = HTML::Pipeline.new [
-      HTML::Pipeline::MarkdownFilter,
-      HTML::Pipeline::AutolinkFilter
-    ]
-    result = pipeline.call(body)
-
+    result = MarkdownProcessor.call(body)
     result[:output].to_s
   end
   COLUMNS = [:id, :title, :body, :posted_at, :published]

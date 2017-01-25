@@ -1,2 +1,5 @@
 .bundle
 database.yml
+public
+node_modules
+.node-version

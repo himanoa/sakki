@@ -13,4 +13,5 @@ gem "rinku"
 group :development do
   gem "guard"
   gem "guard-rack"
+  gem "guard-gulp"
 end

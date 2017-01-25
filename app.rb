@@ -29,6 +29,12 @@ class App < Sinatra::Base
     def entry_repository
       @@entry_repository ||= EntryRepository.new(App.database)
     end
+
+    def title
+      str = ''
+      str = @entry.title + ' - ' if @entry
+      str + 'ポッピンQを見て！'
+    end
   end
   get '/' do
     slim :index
@@ -45,6 +51,7 @@ class App < Sinatra::Base
     id = entry_repository.save(entry)
 
     redirect to("/entries/#{id}")
+    slim :index
   end
 
   get '/entries/:id' do

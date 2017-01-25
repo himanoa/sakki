@@ -11,7 +11,7 @@ class MarkdownProcessor
     end
 
     def twitterize(user)
-      %Q{<a href="https://twitter.com/#{user}">@#{user}</a>}
+      %(<a href="https://twitter.com/#{user}">@#{user}</a>)
     end
   end
 end

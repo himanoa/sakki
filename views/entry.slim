@@ -1,3 +1,10 @@
 h1= @entry.title
 
 == @entry.body_html
+
+footer
+  h2 最新記事
+  ul
+    - entry_repository.recent(3).each do |entry|
+      li
+        a(href="/entries/#{entry.id}")= entry.title

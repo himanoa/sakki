@@ -30,6 +30,17 @@ class App < Sinatra::Base
       @@entry_repository ||= EntryRepository.new(App.database)
     end
 
+    def protected!
+      unless authorized?
+        response['WWW-Authenticate'] = %(Basic realm="Restricted Area")
+        throw(:halt, [401, "Not authorized\n"])
+      end
+    end
+    def authorized?
+      @auth ||=  Rack::Auth::Basic::Request.new(request.env)
+      @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['himanoa', 'password']
+    end
+
     def title
       str = ''
       str = @entry.title + ' - ' if @entry
@@ -41,10 +52,12 @@ class App < Sinatra::Base
   end
 
   get '/entries/new' do
+    protected!
     slim :new
   end
 
   post '/entries' do
+    protected!
     entry = Entry.new
     entry.title = params[:title]
     entry.body = params[:body]

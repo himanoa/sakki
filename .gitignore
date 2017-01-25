@@ -1,5 +1,5 @@
 .bundle
 database.yml
-public
+public/css/*
 node_modules
 .node-version

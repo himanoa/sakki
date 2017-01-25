@@ -38,7 +38,7 @@ class App < Sinatra::Base
     end
     def authorized?
       @auth ||=  Rack::Auth::Basic::Request.new(request.env)
-      @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['himanoa', 'password']
+      @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [ENV['BLOG_USERNAME'], ENV['BLOG_PASSWORD']]
     end
 
     def title

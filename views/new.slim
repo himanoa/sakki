@@ -1,4 +1,6 @@
 form(method="POST" action="/entries")
-  input(type="text" name="title")
-  textarea(name="body")
-  input(type="submit" value="作成")
+  div#editor
+    input(type="text" name="title")
+    textarea(name="body ":value="input" @input="update")
+    div#output(v-html="mdToHtml")
+    input(type="submit" value="作成")

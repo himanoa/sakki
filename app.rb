@@ -1,3 +1,4 @@
+require 'rss/maker'
 require 'bundler/setup'
 Bundler.require(:default)
 require 'sinatra/reloader'
@@ -10,6 +11,7 @@ Dir['repositories/*.rb'].each do |model|
   require_relative model
 end
 class App < Sinatra::Base
+  FEED_LINK = 'https://localhost:9292'.freeze
   configure :development do
     register Sinatra::Reloader
   end
@@ -36,8 +38,9 @@ class App < Sinatra::Base
         throw(:halt, [401, "Not authorized\n"])
       end
     end
+
     def authorized?
-      @auth ||=  Rack::Auth::Basic::Request.new(request.env)
+      @auth ||= Rack::Auth::Basic::Request.new(request.env)
       @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [ENV['BLOG_USERNAME'], ENV['BLOG_PASSWORD']]
     end
 
@@ -67,6 +70,19 @@ class App < Sinatra::Base
     slim :index
   end
 
+  get '/entries/rss' do
+    RSS::Maker.make('2.0') do |rss|
+      rss.channel.title = title
+      rss.channel.description = 'お気持ちアウトプット.js'
+      rss.channel.link = FEED_LINK
+      rss.channel.about = FEED_LINK
+      entry_repository.recent(10).each do |entry|
+        item = rss.items.new_item
+        item.title = entry.title
+        item.link = FEED_LINK + "/entries/#{entry.id}"
+      end
+    end.to_s
+  end
   get '/entries/:id' do
     @entry = entry_repository.fetch(params[:id].to_i)
     slim :entry

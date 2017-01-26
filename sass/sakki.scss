@@ -1,6 +1,25 @@
 html {
   body {
-    ul {
+    .og-card {
+      background-color: #F5F5F5;
+      border: solid 1px #C8C8C8;
+      border-radius: 3px;
+      &:hover {
+        background-color: lightcyan;
+      }
+      a {
+        text-decoration: none;
+        img {
+          width: 50%;
+          height: 50%;
+        }
+        &:link {
+          color: black;
+        }
+        &:visited {
+          color: black;
+        }
+      }
     }
   }
 }

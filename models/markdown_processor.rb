@@ -1,7 +1,9 @@
 require_relative 'markdown_processor/mention_filter'
+require_relative 'markdown_processor/twitter_card_filter'
 class MarkdownProcessor
   FILTERS = [
     HTML::Pipeline::MarkdownFilter,
+    TwitterCardFilter,
     HTML::Pipeline::AutolinkFilter,
     MentionFilter
   ].freeze

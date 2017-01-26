@@ -9,6 +9,7 @@ gem "ridgepole"
 gem "html-pipeline"
 gem "github-markdown"
 gem "rinku"
+gem 'open_graph_reader'
 
 group :development do
   gem "guard"

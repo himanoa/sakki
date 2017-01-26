@@ -51,7 +51,7 @@ class App < Sinatra::Base
       str + 'ポッピンQを見て！'
     end
   end
-  get '/' do
+  get '/entries' do
     slim :index
   end
 

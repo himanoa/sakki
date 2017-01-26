@@ -1,6 +1,44 @@
 @import "css/normalize";
 @import "css/skeleton";
 
+.navbar, .navbar-spacer {
+  display: block;
+  width: 100%;
+  height: 6.5rem;
+  background: #fff;
+  z-index: 99;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  .navbar-list{
+    list-style:none;
+    margin-bottom: 0px;
+    .navbar-item {
+      position: relative;
+      float: left;
+      margin-bottom: 0;
+      .navbar-link {
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: .2rem;
+        margin-right: 35px;
+        text-decoration: none;
+        line-height: 6.5rem;
+        color: #222;
+      }
+    }
+  }
+}
+
+
+.sidebar {
+  background-color: #F1F1F1;
+  padding: 1rem 1.5rem;
+  border: solid 1px #E1E1E1;
+  border-radius: 4px;
+  font-size: 90%;
+}
 footer {
   border-top: solid 1px #b7d7e7;
   padding-top: 20px;

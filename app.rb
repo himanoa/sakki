@@ -2,6 +2,7 @@ require 'rss/maker'
 require 'bundler/setup'
 Bundler.require(:default)
 require 'sinatra/reloader'
+require 'slim/include'
 
 Dir['models/*.rb'].each do |model|
   require_relative model

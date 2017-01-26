@@ -1,10 +1,30 @@
-h1= @entry.title
+div.container
+  div.row
+    div.ten.columns
+      h1= @entry.title
+      section.body_html
+        == @entry.body_html
+      div.row
+        footer
+          div.four.columns
+            h3 最新記事
+            ul.linklist
+              - entry_repository.recent(3).each do |entry|
+                li
+                  a(href="/entries/#{entry.id}")= entry.title.size > 13 ? entry.title[0..12] + '…' : entry.title
+          div.four.columns
+            h3 リンク
+            ul.linklist
+              li
+                a(href="http://www.popin-q.com/index.html")劇場アニメ「ポッピンQ」 | 公式サイト
 
-== @entry.body_html
-
-footer
-  h2 最新記事
-  ul
-    - entry_repository.recent(3).each do |entry|
-      li
-        a(href="/entries/#{entry.id}")= entry.title
+          div.four.columns
+            h3 プロフィール
+            div.container
+              div.row
+                div.three.columns
+                  img(src="https://s.gravatar.com/avatar/390f0177c1ed7a9b4f3eaa4555e80e19?s=80" style="width:100%;")
+                div.nine.columns
+                  a(href="https://twitter.com/h1manoa")ひまのあ
+    div.two.columns.sidebar
+      span 見出しリスト

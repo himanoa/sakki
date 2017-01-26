@@ -22,7 +22,8 @@
     "gulp-postcss": "^6.3.0",
     "gulp-process": "^0.1.2",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.4.0"
+    "gulp-sourcemaps": "^2.4.0",
+    "skeleton-sass": "0.0.1"
   },
   "devDependencies": {
     "gulp": "^3.9.1"

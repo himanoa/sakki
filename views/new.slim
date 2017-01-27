@@ -1,16 +1,14 @@
 div#editor
-  div.container
-    div.row
-      div.six.columns.input
-        form(method="POST" action="/entries")
-          div.row
-            label 記事のタイトル
-            input(class="u-full-width" type="text" name="title")
-          div.row
-            label 本文
-            textarea(rows="15" class="u-full-width" name="body":value="input" @input="update")
-          div.row
-            input(class= "button-primary" type="submit" value="作成")
-      div.six.columns.output
-        div#output(v-html="mdToHtml")
+  div.six.columns.input
+    form(method="POST" action="/entries")
+      div.row
+        label 記事のタイトル
+        input(class="u-full-width" type="text" name="title")
+      div.row
+        label 本文
+        textarea(rows="15" class="u-full-width" name="body":value="input" @input="update")
+      div.row
+        input(class= "button-primary" type="submit" value="作成")
+  div.six.columns.output
+    div#output(v-html="mdToHtml")
 

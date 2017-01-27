@@ -98,3 +98,21 @@ footer {
     }
   }
 }
+
+.entry-card {
+    border-radius: 4px;
+    background-color: white;
+    border: solid 1px #E1E1E1;
+    margin-top:1.5rem;
+    margin-bottom:1.5rem;
+    padding: 2rem;
+    a {
+      text-decoration: none;
+      h4 {
+        border-bottom: solid 1px #b7d7e7;
+      }
+      &:visit {
+        color: #159DD5;
+      }
+    }
+}

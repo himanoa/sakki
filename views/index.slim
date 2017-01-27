@@ -1,6 +1,8 @@
-h1 ポエム投稿サイト
-
-ul
+div.twelve.columns
   - entry_repository.recent.each do |entry, id|
-    li
-      a(href="/entries/#{entry.id}")= entry.title
+      div.entry-card
+        div.row
+          a(href="/entries/#{entry.id}")
+            h4= entry.title
+        div.row
+          == entry.body_html.size > 140 ? '長い文章だぞ！' : entry.body

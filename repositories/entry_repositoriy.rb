@@ -6,10 +6,10 @@ class EntryRepository
     @entries.length - 1
   end
 
-  def recent(limit = 5)
-    query = 'SELECT * FROM `entries` ORDER BY `id` DESC LIMIT ?'
+  def recent(limit = 5, offset = 0)
+    query = 'SELECT * FROM `entries` ORDER BY `id` DESC LIMIT ? OFFSET ?'
     stmt = @db.prepare(query)
-    res = stmt.execute(limit)
+    res = stmt.execute(limit, offset)
 
     res.map do |row|
       Entry.new(row)

@@ -1,5 +1,5 @@
 div.twelve.columns
-  - entry_repository.recent.each do |entry, id|
+  - entry_repository.recent(5, @fugafuga.to_i * 5).each do |entry, id|
       div.entry-card
         div.row
           a(href="/entries/#{entry.id}")

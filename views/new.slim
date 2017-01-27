@@ -3,10 +3,10 @@ div#editor
     form(method="POST" action="/entries")
       div.row
         label 記事のタイトル
-        input(class="u-full-width" type="text" name="title")
+        input(class="u-full-width" type="text" name="title" value="#{@entry.title}")
       div.row
         label 本文
-        textarea(rows="15" class="u-full-width" name="body":value="input" @input="update")
+        textarea(rows="15" class="u-full-width" name="body":value="input" @input="update")= @entry.body
       div.row
         input(class= "button-primary" type="submit" value="作成")
   div.six.columns.output

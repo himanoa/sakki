@@ -53,11 +53,15 @@ class App < Sinatra::Base
     end
   end
   get '/entries' do
+    @fugafuga = params[:page] || 0
     slim :index
   end
 
   get '/entries/new' do
     protected!
+    @entry = Entry.new
+    @entry.title = ""
+    @entry.body = ""
     slim :new
   end
 

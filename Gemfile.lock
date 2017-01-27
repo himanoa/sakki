@@ -21,6 +21,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.17)
     formatador (0.2.5)
+    gemoji (2.1.0)
     github-markdown (0.6.9)
     guard (2.14.0)
       formatador (>= 0.2.4)
@@ -110,6 +111,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  gemoji
   github-markdown
   guard
   guard-gulp

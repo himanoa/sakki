@@ -5,13 +5,14 @@ class MarkdownProcessor
     HTML::Pipeline::MarkdownFilter,
     TwitterCardFilter,
     HTML::Pipeline::AutolinkFilter,
-    MentionFilter
+    MentionFilter,
+    HTML::Pipeline::EmojiFilter
   ].freeze
-  def self.call(text, options = {})
-    new(options).call(text)
+  def self.call(text)
+    new().call(text)
   end
 
-  def initialize(options = {})
+  def initialize(options = {asset_root: "https://assets.github.com/images/icons/"})
     @options = options
   end
 

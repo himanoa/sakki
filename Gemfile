@@ -10,6 +10,7 @@ gem "html-pipeline"
 gem "github-markdown"
 gem "rinku"
 gem 'open_graph_reader'
+gem "gemoji"
 
 group :development do
   gem "guard"

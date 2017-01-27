@@ -29,7 +29,7 @@ class App < Sinatra::Base
   end
 
   helpers do
-    TITLE = 'ポッピンQを見て！'
+    TITLE = 'ひっそりとなんかする'
     def entry_repository
       @@entry_repository ||= EntryRepository.new(App.database)
     end

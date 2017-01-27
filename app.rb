@@ -29,6 +29,7 @@ class App < Sinatra::Base
   end
 
   helpers do
+    TITLE = 'ポッピンQを見て！'
     def entry_repository
       @@entry_repository ||= EntryRepository.new(App.database)
     end
@@ -48,7 +49,7 @@ class App < Sinatra::Base
     def title
       str = ''
       str = @entry.title + ' - ' if @entry
-      str + 'ポッピンQを見て！'
+      str + TITLE
     end
   end
   get '/entries' do

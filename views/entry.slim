@@ -3,6 +3,11 @@ div.columns
   section.body-html
     == @entry.body_html
   div.row
+    div.one.columns
+      include components/sharebutton/twitter
+    div.one.columns
+      include components/sharebutton/hatenabookmark
+  div.row
     footer
       div.four.columns
         h3 最新記事

@@ -76,7 +76,7 @@ class App < Sinatra::Base
     entry.title = params[:title]
     entry.body = params[:body]
     entry.posted_at = Time.now.strftime("%Y-%m-%d %H:%M:%S")
-    entry.published = true
+    entry.published = 1
     id = entry_repository.save(entry)
     url = request.url
     redirect to("/entries/#{id}")

@@ -4,6 +4,8 @@ div.twelve.columns
         div.row
           a(href="/entries/#{entry.id}")
             h4= entry.title
+        div.row
+          p= entry.body[0..124].gsub(/\s/, ' ')
   div.pager.row
     div.offset-by-three.columns.row
       - unless @pager.to_i == 0

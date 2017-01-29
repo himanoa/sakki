@@ -3,6 +3,7 @@ require 'bundler/setup'
 Bundler.require(:default)
 require 'sinatra/reloader'
 require 'slim/include'
+require 'date'
 
 Dir['models/*.rb'].each do |model|
   require_relative model
@@ -74,6 +75,8 @@ class App < Sinatra::Base
     entry = Entry.new
     entry.title = params[:title]
     entry.body = params[:body]
+    entry.posted_at = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+    entry.published = true
     id = entry_repository.save(entry)
     url = request.url
     redirect to("/entries/#{id}")

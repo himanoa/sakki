@@ -6,6 +6,15 @@ class EntryRepository
     @entries.length - 1
   end
 
+  def size()
+    query = 'SELECT COUNT(*) `entries`'
+    stmt = @db.prepare(query)
+    stmt.execute
+  end
+
+  def length()
+    size
+  end
   def recent(limit = 5, offset = 0)
     query = 'SELECT * FROM `entries` ORDER BY `id` DESC LIMIT ? OFFSET ?'
     stmt = @db.prepare(query)

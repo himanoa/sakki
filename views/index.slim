@@ -1,6 +1,11 @@
 div.twelve.columns
-  - entry_repository.recent(5, @now_page.to_i * 5).each do |entry, id|
+  - entry_repository.recent(5, @pager.to_i * 5).each do |entry, id|
       div.entry-card
         div.row
           a(href="/entries/#{entry.id}")
             h4= entry.title
+  div.pager.row
+    - unless @pager.to_i == 0
+      a.button.offset-by-three.two.columns(href="/entries?page=#{@pager.to_i-1}")Prev
+    - unless @pager.to_i * 5 == entry_repository.size
+      a.button.offset-by-one.two.columns(href="/entries?page=#{@pager.to_i+1}")Next

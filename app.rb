@@ -29,7 +29,7 @@ class App < Sinatra::Base
   end
 
   helpers do
-    TITLE = 'ひっそりとなんかする'
+    TITLE = 'okimoti.io.println'
     def entry_repository
       @@entry_repository ||= EntryRepository.new(App.database)
     end
@@ -52,8 +52,12 @@ class App < Sinatra::Base
       str + TITLE
     end
   end
+
+  get '/' do
+    slim :aboutme
+  end
   get '/entries' do
-    @fugafuga = params[:page] || 0
+    @pager = params[:page] || 0
     slim :index
   end
 

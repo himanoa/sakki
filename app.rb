@@ -75,7 +75,7 @@ class App < Sinatra::Base
     entry.title = params[:title]
     entry.body = params[:body]
     id = entry_repository.save(entry)
-
+    url = request.url
     redirect to("/entries/#{id}")
     slim :index
   end

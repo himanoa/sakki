@@ -1,7 +1,7 @@
 doctype 5
 html
   head
-    meta(charset="UTF-8")
+    title= title
     javascript:
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -15,9 +15,9 @@ html
     script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"
     script src="/js/markdown_editor.js"
     link(rel="stylesheet" href="/css/sakki.css")
-    title= title
+    include components/meta/meta.slim
   body
     include navbar
     div.container
       div.row
-        == yield
+         == yield

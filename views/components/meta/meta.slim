@@ -1,0 +1,7 @@
+meta(charset="utf-8")
+- if @entry.nil?
+  meta(name="description" content="このサイトはひまのあの個人サイトです。プログラミング系（主にPython、Ruby）やハマった映画とか日常の日記などを記載したりします。")
+- else
+  meta(name="description" content="#{@entry.body[0..124].gsub(/\s/, '')}")
+meta(name="title" content="#{title}")
+meta(itemprop="name" content="#{title}")

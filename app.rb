@@ -104,7 +104,7 @@ class App < Sinatra::Base
   get '/entries/rss' do
     RSS::Maker.make('2.0') do |rss|
       rss.channel.title = title
-      rss.channel.description = 'お気持ちアウトプット.js'
+      rss.channel.description = TITLE
       rss.channel.link = FEED_LINK
       rss.channel.about = FEED_LINK
       entry_repository.recent(10).each do |entry|

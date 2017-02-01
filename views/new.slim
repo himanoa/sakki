@@ -6,7 +6,7 @@ div#editor
         input(class="u-full-width" type="text" name="title" value="#{@entry.title}")
       div.row
         label 本文
-        textarea(rows="15" class="u-full-width" name="body":value="input" @input="update")= @entry.body
+        textarea#textbody(rows="15" class="u-full-width" name="body":value="input" @input="update" data-text="#{@entry.body}")
       div.row
         input(class= "button-primary" type="submit" value="作成")
   div.six.columns.output

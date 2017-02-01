@@ -62,6 +62,12 @@ class App < Sinatra::Base
     slim :index
   end
 
+  get '/entries/:id/edit' do
+    protected!
+    @entry = entry_repository.fetch(params[:id].to_i)
+    p @entry.body
+    slim :new
+  end
   get '/entries/new' do
     protected!
     @entry = Entry.new

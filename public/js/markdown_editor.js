@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(){
   new Vue({
     el: '#editor',
     data: {
-      input: ''
+      input: document.querySelector('[data-text]').getAttribute('data-text')
     },
     computed:{
       mdToHtml: function(){

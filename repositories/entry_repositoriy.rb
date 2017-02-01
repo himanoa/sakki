@@ -25,6 +25,12 @@ class EntryRepository
     end
   end
 
+  def update(id, title, body, posted_at)
+    query = "UPDATE `entries` SET `title`=?,`body`=?,`posted_at`=? WHERE `id`=?"
+    stmt = @db.prepare(query)
+    stmt.execute(title, body, posted_at, id)
+    id
+  end
   def save(entry)
     columns = Entry::COLUMNS.reject { |key| key == :id }
     values = columns.map { |key| entry.instance_variable_get("@#{key}") }

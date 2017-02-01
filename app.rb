@@ -65,14 +65,26 @@ class App < Sinatra::Base
   get '/entries/:id/edit' do
     protected!
     @entry = entry_repository.fetch(params[:id].to_i)
-    p @entry.body
+    @method = 'POST'
+    @action = "/entries/#{params[:id]}"
     slim :new
+  end
+  post '/entries/:id' do
+    protected!
+    title = params[:title]
+    body = params[:body]
+    id = params[:id]
+    posted_at = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+    entry_repository.update(id.to_i, title, body, posted_at)
+    redirect to("/entries/#{id}")
   end
   get '/entries/new' do
     protected!
     @entry = Entry.new
     @entry.title = ""
     @entry.body = ""
+    @method = 'POST'
+    @action = "/entries"
     slim :new
   end
 
@@ -102,6 +114,7 @@ class App < Sinatra::Base
       end
     end.to_s
   end
+
   get '/entries/:id' do
     @entry = entry_repository.fetch(params[:id].to_i)
     slim :entry

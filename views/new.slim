@@ -1,6 +1,6 @@
 div#editor
   div.six.columns.input
-    form(method="POST" action="/entries")
+    form(method="#{@method}" action="#{@action}")
       div.row
         label 記事のタイトル
         input(class="u-full-width" type="text" name="title" value="#{@entry.title}")

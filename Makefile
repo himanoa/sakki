@@ -1,4 +1,4 @@
 up:
-	bundle exec guard
+	gulp
 db-setup:
 	bundle exec ridgepole -c config/database.yml -E development -a

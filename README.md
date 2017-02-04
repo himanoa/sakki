@@ -10,3 +10,11 @@ BLOG_REALM=realm
 TRACKING_CODE=グーグルのクローラに載せるやつ
 ```
 めう
+
+## 動かし方
+
+```
+make db-setup
+make up
+```
+

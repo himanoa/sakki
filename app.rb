@@ -1,3 +1,5 @@
+require 'active_support/all'
+require 'continuation'
 require 'rss/maker'
 require 'bundler/setup'
 Bundler.require(:default)
@@ -35,16 +37,18 @@ class App < Sinatra::Base
       @@entry_repository ||= EntryRepository.new(App.database)
     end
 
-    def protected!
-      unless authorized?
-        response['WWW-Authenticate'] = %(Basic realm="Restricted Area")
-        throw(:halt, [401, "Not authorized\n"])
+    def res(request)
+      auth = Rack::Auth::Digest::MD5.new(Sinatra::Base,ENV['BLOG_REALM']) do |user|
+        hash = {}.with_indifferent_access
+        hash[ENV['BLOG_USERNAME']] = ENV['BLOG_PASSWORD']
+        hash[user]
       end
+      auth.opaque = 'posapdoasd'
+      auth.call(request.env)
     end
-
-    def authorized?
-      @auth ||= Rack::Auth::Basic::Request.new(request.env)
-      @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [ENV['BLOG_USERNAME'], ENV['BLOG_PASSWORD']]
+    def protected!
+      response = res(request)
+      throw(:halt, response) if response.first == 401
     end
 
     def title

@@ -1,7 +1,16 @@
 meta(charset="utf-8")
 - if @entry.nil?
+  meta(name="twitter:card" content="このサイトはひまのあの個人サイトです。プログラミング系（主にPython、Ruby）やハマった映画とか日常の日記などを記載したりします。")
+  meta(property="og:description" content="このサイトはひまのあの個人サイトです。プログラミング系（主にPython、Ruby）やハマった映画とか日常の日記などを記載したりします。")
   meta(name="description" content="このサイトはひまのあの個人サイトです。プログラミング系（主にPython、Ruby）やハマった映画とか日常の日記などを記載したりします。")
 - else
+  meta(name="twitter:card" content="#{@entry.body[0..124].gsub(/\s/, '')}")
+  meta(property="og:description" content="#{@entry.body[0..124].gsub(/\s/, '')}")
   meta(name="description" content="#{@entry.body[0..124].gsub(/\s/, '')}")
 meta(name="title" content="#{title}")
+meta(property="og:title" content="#{title}")
+meta(property="og:type" conent="website")
+meta(property="og:site_name" content="#{TITLE}")
+meta(property="og:image" content="https://s.gravatar.com/avatar/390f0177c1ed7a9b4f3eaa4555e80e19?s=80")
 meta(itemprop="name" content="#{title}")
+

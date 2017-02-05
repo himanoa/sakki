@@ -3,3 +3,4 @@ database.yml
 public/css/*
 node_modules
 .node-version
+public/robots.txt

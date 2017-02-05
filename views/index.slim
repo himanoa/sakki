@@ -1,5 +1,3 @@
-p #{entry_repository.size}
-p #{@pager.to_i * 5}
 div.twelve.columns
   - entry_repository.recent(5, @pager.to_i * 5).each do |entry, id|
       div.entry-card

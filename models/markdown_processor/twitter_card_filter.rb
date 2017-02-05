@@ -3,7 +3,7 @@ class MarkdownProcessor
   class TwitterCardFilter < HTML::Pipeline::Filter
     def call
       doc.search('.//text()').each do |node|
-        html = node.to_html.gsub(Regexp.new("^"+URI.regexp.to_s+"$")) do |url|
+        html = node.to_html.gsub(Regexp.new('^' + URI.regexp.to_s + '$')) do |url|
           to_card(url)
         end
         node.replace(html)

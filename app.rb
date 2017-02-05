@@ -32,13 +32,13 @@ class App < Sinatra::Base
   end
 
   helpers do
-    TITLE = 'okimoti.io.println'
+    TITLE = 'okimoti.io.println'.freeze
     def entry_repository
       @@entry_repository ||= EntryRepository.new(App.database)
     end
 
     def res(request)
-      auth = Rack::Auth::Digest::MD5.new(Sinatra::Base,ENV['BLOG_REALM']) do |user|
+      auth = Rack::Auth::Digest::MD5.new(Sinatra::Base, ENV['BLOG_REALM']) do |user|
         hash = {}.with_indifferent_access
         hash[ENV['BLOG_USERNAME']] = ENV['BLOG_PASSWORD']
         hash[user]
@@ -46,6 +46,7 @@ class App < Sinatra::Base
       auth.opaque = 'posapdoasd'
       auth.call(request.env)
     end
+
     def protected!
       response = res(request)
       throw(:halt, response) if response.first == 401
@@ -78,17 +79,17 @@ class App < Sinatra::Base
     title = params[:title]
     body = params[:body]
     id = params[:id]
-    posted_at = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+    posted_at = Time.now.strftime('%Y-%m-%d %H:%M:%S')
     entry_repository.update(id.to_i, title, body, posted_at)
     redirect to("/entries/#{id}")
   end
   get '/entries/new' do
     protected!
     @entry = Entry.new
-    @entry.title = ""
-    @entry.body = ""
+    @entry.title = ''
+    @entry.body = ''
     @method = 'POST'
-    @action = "/entries"
+    @action = '/entries'
     slim :new
   end
 
@@ -97,7 +98,7 @@ class App < Sinatra::Base
     entry = Entry.new
     entry.title = params[:title]
     entry.body = params[:body]
-    entry.posted_at = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+    entry.posted_at = Time.now.strftime('%Y-%m-%d %H:%M:%S')
     entry.published = 1
     id = entry_repository.save(entry)
     url = request.url

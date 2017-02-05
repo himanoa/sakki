@@ -6,15 +6,16 @@ class EntryRepository
     @entries.length - 1
   end
 
-  def size()
+  def size
     query = 'SELECT COUNT(*) `entries`'
     stmt = @db.prepare(query)
     stmt.execute
   end
 
-  def length()
+  def length
     size
   end
+
   def recent(limit = 5, offset = 0)
     query = 'SELECT * FROM `entries` ORDER BY `id` DESC LIMIT ? OFFSET ?'
     stmt = @db.prepare(query)
@@ -26,11 +27,12 @@ class EntryRepository
   end
 
   def update(id, title, body, posted_at)
-    query = "UPDATE `entries` SET `title`=?,`body`=?,`posted_at`=? WHERE `id`=?"
+    query = 'UPDATE `entries` SET `title`=?,`body`=?,`posted_at`=? WHERE `id`=?'
     stmt = @db.prepare(query)
     stmt.execute(title, body, posted_at, id)
     id
   end
+
   def save(entry)
     columns = Entry::COLUMNS.reject { |key| key == :id }
     values = columns.map { |key| entry.instance_variable_get("@#{key}") }

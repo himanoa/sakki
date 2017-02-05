@@ -9,10 +9,10 @@ class MarkdownProcessor
     HTML::Pipeline::EmojiFilter
   ].freeze
   def self.call(text)
-    new().call(text)
+    new.call(text)
   end
 
-  def initialize(options = {asset_root: "https://assets.github.com/images/icons/"})
+  def initialize(options = { asset_root: 'https://assets.github.com/images/icons/' })
     @options = options
   end
 

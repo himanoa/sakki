@@ -32,7 +32,7 @@ class App < Sinatra::Base
   end
 
   helpers do
-    TITLE = 'okimoti.io.println'.freeze
+    TITLE = 'okimoti.out.println'.freeze
     def entry_repository
       @@entry_repository ||= EntryRepository.new(App.database)
     end

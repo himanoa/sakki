@@ -64,6 +64,8 @@ class App < Sinatra::Base
   end
   get '/entries' do
     @pager = params[:page] || 0
+    count = entry_repository.size
+    p count
     slim :index
   end
 

@@ -7,9 +7,9 @@ class EntryRepository
   end
 
   def size
-    query = 'SELECT COUNT(*) `entries`'
-    stmt = @db.prepare(query)
-    stmt.execute
+    query = 'SELECT `id` FROM `entries`'
+    res = @db.query(query)
+    res.count
   end
 
   def length

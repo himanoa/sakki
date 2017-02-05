@@ -1,3 +1,5 @@
+p #{entry_repository.size}
+p #{@pager.to_i * 5}
 div.twelve.columns
   - entry_repository.recent(5, @pager.to_i * 5).each do |entry, id|
       div.entry-card
@@ -10,5 +12,5 @@ div.twelve.columns
     div.offset-by-three.columns.row
       - unless @pager.to_i == 0
         a.button.two.columns(href="/entries?page=#{@pager.to_i-1}")Prev
-      - unless @pager.to_i * 5 == entry_repository.size
+      - if @pager.to_i * 5 + 5 <= entry_repository.size
         a.button.offset-by-one.two.columns(href="/entries?page=#{@pager.to_i+1}")Next

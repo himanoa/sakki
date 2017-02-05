@@ -106,7 +106,7 @@ class App < Sinatra::Base
     slim :index
   end
 
-  get '/entries/rss' do
+  get '/entries.rss' do
     RSS::Maker.make('2.0') do |rss|
       rss.channel.title = title
       rss.channel.description = TITLE

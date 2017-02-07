@@ -10,10 +10,10 @@ html
 
       ga('create', '#{ENV['TRACKING_CODE']}', 'auto');
       ga('send', 'pageview');
-    script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
-    script src="https://cdn.rawgit.com/chjj/marked/master/marked.min.js"
-    script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"
-    script src="/js/markdown_editor.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js" async
+    script src="https://cdn.rawgit.com/chjj/marked/master/marked.min.js" async
+    script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js" async
+    script src="/js/markdown_editor.js" async
     link(rel="stylesheet" href="/css/sakki.css")
     include components/meta/meta.slim
   body

@@ -15,7 +15,7 @@ Dir['repositories/*.rb'].each do |model|
   require_relative model
 end
 class App < Sinatra::Base
-  FEED_LINK = 'https://localhost:9292'.freeze
+  FEED_LINK = 'https://himanoa.com'.freeze
   configure :development do
     register Sinatra::Reloader
   end

@@ -20,4 +20,4 @@ make up
 
 ## サンプル
 
-[](https://himanoa.com)
+[himanoa.com](https://himanoa.com)

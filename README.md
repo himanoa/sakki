@@ -8,6 +8,8 @@ BLOG_PASSWORD=パスワードを入れる（将来的にはハッシュになっ
 BLOG_USERNAME=名前を入れる
 BLOG_REALM=realm
 TRACKING_CODE=グーグルのクローラに載せるやつ
+EMAIL=あなたのEmailアドレス
+EMBEDLY_KEY=EMBEDLY_KEY
 ```
 めう
 

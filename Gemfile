@@ -11,6 +11,7 @@ gem "github-markdown"
 gem "rinku"
 gem 'open_graph_reader'
 gem "gemoji"
+gem 'embedly'
 
 group :development do
   gem "guard"

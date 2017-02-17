@@ -18,6 +18,7 @@
   "homepage": "https://github.com/AC3ROZ/sakki#readme",
   "dependencies": {
     "autoprefixer": "^6.7.0",
+    "emojinize": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-postcss": "^6.3.0",
     "gulp-process": "^0.1.2",

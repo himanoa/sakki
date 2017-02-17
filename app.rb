@@ -109,6 +109,8 @@ class App < Sinatra::Base
   end
 
   get '/entries.rss' do
+    headers \
+      "Content-type" => "text/xml; charset=utf-8"
     RSS::Maker.make('2.0') do |rss|
       rss.channel.title = title
       rss.channel.description = TITLE

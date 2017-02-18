@@ -1,6 +1,8 @@
 const Vue = require('../node_modules/vue/dist/vue.min.js');
 const marked = require('marked');
 const _ = require('lodash');
+const emojinize = require('emojinize');
+
 document.addEventListener("DOMContentLoaded", function(){
   if(!document.querySelector('#editor')){
     return ;
@@ -12,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function(){
     },
     computed:{
       mdToHtml: function(){
-        return marked(this.input, { sanitize: true });
+        return emojinize.encode(marked(this.input, { sanitize: true }));
       }
     },
     methods: {

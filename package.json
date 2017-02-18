@@ -27,6 +27,16 @@
     "skeleton-sass": "0.0.1"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "babel": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-preset-latest": "^6.22.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.1.0",
+    "emojinize": "^1.0.0",
+    "gulp": "^3.9.1",
+    "lodash": "^4.17.4",
+    "marked": "^0.3.6",
+    "vinyl-source-stream": "^1.1.0",
+    "vue": "^2.1.10"
   }
 }

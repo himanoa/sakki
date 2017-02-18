@@ -3,6 +3,11 @@ div.columns
   section.body-html
     == @entry.body_html
   div.row
+    span
+      | 投稿日時:
+      time= @entry.posted_at
+
+  div.row
     div.one.columns
       include components/sharebutton/twitter
     div.one.columns

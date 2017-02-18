@@ -36,9 +36,10 @@ gulp.task('babelify', function(){
   .pipe(gulp.dest("./public/js"))
 })
 
-gulp.task('build', ['sass']);
+gulp.task('build', ['sass', 'babelify']);
 
 gulp.task('default', ['build'], function() {
   gulp.watch('./sass/**/*.scss', ['sass']);
+  gulp.watch('./js/**/*.js', ['babelify']);
   process.start('guard', 'bundle', ['exec', 'guard', '--no-interactions']);
 });

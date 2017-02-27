@@ -1,4 +1,7 @@
 @import "css/skeleton";
+code {
+  white-space: normal;
+}
 html {
   /* Larger than mobile */
   @media (min-width: 400px) {
@@ -231,6 +234,9 @@ footer {
   }
 }
 
+code {
+  word-break: break-all;
+}
 .entry-card {
     border-radius: 4px;
     background-color: white;

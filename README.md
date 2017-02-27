@@ -4,7 +4,7 @@
 ## 環境変数
 
 ```
-BLOG_PASSWORD=パスワードを入れる（将来的にはハッシュになって行きたい）
+BLOG_PASSWORD=パスワードを入れる
 BLOG_USERNAME=名前を入れる
 BLOG_REALM=realm
 TRACKING_CODE=グーグルのクローラに載せるやつ

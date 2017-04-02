@@ -95,6 +95,13 @@ class App < Sinatra::Base
     slim :new
   end
 
+  delete '/entries/:id' do
+    protected!
+    id = params[:id]
+    entry_repository.delete(id.to_i)
+    redirect to("/entries")
+  end
+
   post '/entries' do
     protected!
     entry = Entry.new

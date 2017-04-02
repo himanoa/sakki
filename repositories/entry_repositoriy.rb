@@ -26,6 +26,11 @@ class EntryRepository
     end
   end
 
+  def delete(id)
+    query = 'DELETE FROM `entries` WHERE `id`=?'
+    stmt = @db.prepare(query)
+    stmt.execute(id)
+  end
   def update(id, title, body, posted_at)
     query = 'UPDATE `entries` SET `title`=?,`body`=?,`posted_at`=? WHERE `id`=?'
     stmt = @db.prepare(query)

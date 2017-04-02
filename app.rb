@@ -74,6 +74,7 @@ class App < Sinatra::Base
     @entry = entry_repository.fetch(params[:id].to_i)
     @method = 'POST'
     @action = "/entries/#{params[:id]}"
+    @is_edit= true
     slim :new
   end
   post '/entries/:id' do
@@ -92,9 +93,11 @@ class App < Sinatra::Base
     @entry.body = ''
     @method = 'POST'
     @action = '/entries'
+    @is_edit = false
     slim :new
   end
 
+  enable :method_override
   delete '/entries/:id' do
     protected!
     id = params[:id]

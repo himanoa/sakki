@@ -12,6 +12,7 @@ gem "rinku"
 gem 'open_graph_reader'
 gem "gemoji"
 gem 'embedly'
+gem "xml-sitemap"
 
 group :development do
   gem "guard"

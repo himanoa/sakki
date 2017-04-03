@@ -118,6 +118,20 @@ class App < Sinatra::Base
     slim :index
   end
 
+  get '/fuga' do
+  end
+  get '/sitemap' do
+    headers \
+      "Content-type" => "text/xml; charset=utf-8"
+    map = XmlSitemap::Map.new("himanoa.com") do |m|
+      m.add('/entries.rss')
+      m.add('/entries')
+      entry_repository.each.each do |e|
+        m.add("/entries/#{e.id}")
+      end
+    end
+    map.render
+  end
   get '/entries.rss' do
     headers \
       "Content-type" => "text/xml; charset=utf-8"

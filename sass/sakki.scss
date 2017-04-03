@@ -5,12 +5,12 @@ code {
 html {
   /* Larger than mobile */
   @media (min-width: 400px) {
-    font-size: 100%;
+    font-size: 60%;
   }
 
   /* Larger than phablet */
   @media (min-width: 550px) {
-    font-size: 100%;
+    font-size: 60%;
   }
 
   /* Larger than tablet */
@@ -89,28 +89,6 @@ footer {
   padding-left: 10px;
   list-style-type: none;
 }
-.body-html {
-  p {
-    margin-bottom: 1.5rem;
-  }
-  h1{
-    font-size: 4.2rem;
-  }
-  h2{
-    font-size: 3.6rem;
-  }
-  h3{
-    font-size: 3.0rem;
-  }
-  h4{
-    font-size: 2.4rem;
-  }
-  h5{
-    font-size: 1.5rem;
-  }
-  h6{
-    font-size: 1.0rem;
-  }
   .og-card {
     h2 {
       font-size: 2.4rem;
@@ -137,7 +115,6 @@ footer {
         color: black;
       }
     }
-  }
 }
 
 #editor {
@@ -179,17 +156,20 @@ footer {
   p {
     margin-bottom: 1.5rem;
   }
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+  }
   h1{
-    font-size: 4.2rem;
-  }
-  h2{
-    font-size: 3.6rem;
-  }
-  h3{
     font-size: 3.0rem;
   }
-  h4{
+  h2{
     font-size: 2.4rem;
+  }
+  h3{
+    font-size: 2.0rem;
+  }
+  h4{
+    font-size: 1.5rem;
   }
   h5{
     font-size: 1.5rem;
@@ -253,4 +233,17 @@ code {
         color: #159DD5;
       }
     }
+}
+
+.title {
+  text-align: center;
+  padding-top: 1.5rem;
+  padding-bottom: 5rem;
+  h1 {
+    font-weight: 500;
+    font-size: 4rem;
+  }
+  time {
+    font-size: 2rem;
+  }
 }

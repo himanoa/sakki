@@ -1,6 +1,7 @@
 create_table "entries", force: :cascade do |t|
   t.string   "title", charset: "utf8mb4"
   t.text     "body", charset: "utf8mb4"
+  t.text     "body_html", charset: "utf8mb4"
   t.datetime "posted_at"
   t.boolean "published"
 end

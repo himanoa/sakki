@@ -110,6 +110,7 @@ class App < Sinatra::Base
     entry = Entry.new
     entry.title = params[:title]
     entry.body = params[:body]
+    entry.body_html = entry.to_html
     entry.posted_at = Time.now.strftime('%Y-%m-%d %H:%M:%S')
     entry.published = 1
     id = entry_repository.save(entry)
@@ -118,8 +119,6 @@ class App < Sinatra::Base
     slim :index
   end
 
-  get '/fuga' do
-  end
   get '/sitemap' do
     headers \
       "Content-type" => "text/xml; charset=utf-8"
@@ -150,6 +149,9 @@ class App < Sinatra::Base
 
   get '/entries/:id' do
     @entry = entry_repository.fetch(params[:id].to_i)
+    if @entry.body_html.nil?
+      @entry.body_html = entry_repository.update_html(params[:id].to_i, @entry.to_html)
+    end
     slim :entry
   end
 end

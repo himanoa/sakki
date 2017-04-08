@@ -31,6 +31,14 @@ class EntryRepository
     stmt = @db.prepare(query)
     stmt.execute(id)
   end
+
+  def update_html(id, body_html)
+    query = 'UPDATE `entries` SET `body_html`=? WHERE `id`=?'
+    stmt = @db.prepare(query)
+    stmt.execute(body_html, id)
+    body_html
+  end
+
   def update(id, title, body, posted_at)
     query = 'UPDATE `entries` SET `title`=?,`body`=?,`posted_at`=? WHERE `id`=?'
     stmt = @db.prepare(query)

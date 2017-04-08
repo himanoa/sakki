@@ -7,14 +7,14 @@ class Entry
     end
   end
 
-  def body_html
-    result = MarkdownProcessor.call(body)
-    result[:output].to_s
+  def to_html
+    MarkdownProcessor.call(body)[:output].to_s
   end
+
   def format_posted_at
     posted_at.strftime("%Y-%m-%d %H:%M")
   end
-  COLUMNS = [:id, :title, :body, :posted_at, :published].freeze
+  COLUMNS = [:id, :title, :body, :body_html, :posted_at, :published].freeze
   COLUMNS.each do |column|
     attr_accessor column
   end
